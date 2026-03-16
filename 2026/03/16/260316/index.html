@@ -170,7 +170,26 @@
     </div>
     
     <div class="content" v-pre>
-        
+        <p>昨天我在我本地的myblog&#x2F;sources&#x2F;_posts&#x2F;写了一篇blog(260315.md)<br>在blog中我加入了一张图片naxida.jpg，并把该图片存到与260315.md同目录的images文件夹里<br>然后在根目录下hexo clean、hexo g、hexo d部署到github pages<br>但是我的lnlikecutegirl.github.io加载不出来图片<br>通过询问ai，我得到如下解决方法：<br>1.<br>1）将 naxida.jpg 从 source&#x2F;_posts&#x2F;images&#x2F; 移动到 source&#x2F;images&#x2F;<br>2）在md中使用<img src="/images/naxida.jpg" alt="纳西妲"><br>3）重新按hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br>加载出来了<br>2.<br>1）安装一个名为 hexo-asset-image 的插件<br>2）在md中使用<img src="/./images/naxida.jpg" alt="纳西妲">或<img src="/_posts/images/naxida.jpg" alt="纳西妲"><br>未加载出来</p>
+<p>原因剖析：<br>hexo工作机制<br>hexo clean<br>核心作用是清除缓存文件和已生成的静态文件，确保下一次生成（hexo g）是从零开始，完全重新构建网站<br>删除 public&#x2F; 文件夹<br>内容：这是 hexo g 生成的最终网站文件（HTML, CSS, JS, 图片等）<br>删除 db.json 文件<br>内容：这是 Hexo 的数据库缓存文件。Hexo 为了加快生成速度，会把所有文章、标签、分类的信息存到这个 JSON 文件里。下次生成时，它只处理有变动的部分<br>删除 scaffolds&#x2F;.gitignore (视情况)<br>某些版本或配置下，它也会清理一些临时的 scaffold 缓存，但主要是前两项<br>⚠️ 注意：它不会删除你的源码（source&#x2F;_posts）、配置文件（_config.yml）、主题文件（themes）或 node_modules</p>
+<p>hexo g<br>hexo g 时，Hexo 会对 _posts 里的 .md 文件做以下操作：<br>读取文件：读取 source&#x2F;_posts&#x2F;260315.md。<br>解析 Front-matter：读取文件头部的日期、标题等信息（例如 date: 2026-03-15）。<br>应用 permalink 规则：根据 _config.yml 中的 permalink 设置（默认通常是 :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;），计算输出路径。<br>输入：260315.md (日期 2026-03-15)<br>输出路径计算：public&#x2F;2026&#x2F;03&#x2F;15&#x2F;260315&#x2F;index.html<br>渲染 HTML：将 Markdown 内容转换成 HTML，填入主题模板，生成最终的 index.html 文件</p>
+<p>Hexo 在生成静态网页时，只会“搬运”你放在 source 根目录下的文件，而会直接忽略掉 _posts 文件夹里除了 .md 文章文件以外的其他文件（如图片、视频等）<br>Hexo 对 source 目录下的不同子文件夹有完全不同的“处理策略”。<br>我们可以把 source 目录想象成一个工厂的原材料仓库，而 hexo g（生成）就是生产线。</p>
+<ol>
+<li><p>_posts 文件夹<br>规则：Hexo 认为 _posts 里只应该放文章草稿（.md 文件）。<br>输入hexo g，它只从 _posts 里抓取 .md 文件，把它们“加工”成 HTML 网页。<br>对于 _posts 里的其他任何文件（图片、视频、txt等），生产线会认为它们是“废料”或“无关文件”，直接忽略，不会搬运到最终的产品区（public 目录）。</p>
+</li>
+<li><p>source 根目录下的其他文件夹（如 images）<br>规则：除了 _posts, _drafts, _data 等几个特殊文件夹外，source 根目录下的其他所有文件夹（比如你新建的 images, about, files 等），Hexo 都会执行“原样复制”策略<br>看到 source&#x2F;images&#x2F;naxida.jpg<br>直接在最终产品区 public 里创建一个一模一样的文件夹结构：public&#x2F;images&#x2F;<br>把图片原封不动地复制过去：public&#x2F;images&#x2F;naxida.jpg</p>
+</li>
+</ol>
+<p>hexo d<br>当你输入 hexo d 时，Hexo 首先会读取博客根目录下的 _config.yml 文件，寻找 deploy 部分的配置。<br>yaml</p>
+<h1 id="config-yml-示例"><a href="#config-yml-示例" class="headerlink" title="_config.yml 示例"></a>_config.yml 示例</h1><p>deploy:<br>  type: git<br>  repo: <a target="_blank" rel="noopener" href="https://github.com/yourname/yourname.github.io.git">https://github.com/yourname/yourname.github.io.git</a><br>  branch: main<br>type: 告诉 Hexo 用什么方式部署（最常用的是 git）。<br>repo: 目标仓库的地址（通常是你的 GitHub Pages 仓库）。<br>branch: 要推送到哪个分支（GitHub Pages 通常是 main 或 master）<br>第一步：自动生成 (Generate)<br>如果你之前没有运行过 hexo g，hexo d 通常会自动先执行生成操作<br>它会读取 source 文件夹里的文章和资源。<br>渲染主题模板。<br>生成完整的静态网站文件到 public 文件夹。<br>此时，你的 public 文件夹里就是最终要发布的网站内容（HTML, CSS, JS, 图片等）。<br>第二步：准备 Git 仓库 (The Magic Step)<br>这是最关键的一步，也是很多新手困惑的地方。<br>Hexo 会在你的博客目录下创建一个隐藏的文件夹，通常叫 .deploy_git（注意：它和你源码管理的 .git 是分开的！）。<br>初始化：Hexo 会在 .deploy_git 里初始化一个全新的 Git 仓库。<br>添加远程：它会把 _config.yml 里配置的 repo 地址添加为这个临时仓库的 origin。<br>复制文件：它把刚刚生成的 public 文件夹里的所有内容，复制到这个 .deploy_git 文件夹中。<br>提交更改：它会自动执行 git add . 和 git commit，提交信息通常默认为 “Site updated: [当前时间]”。<br>💡 为什么要这么做？<br>因为你的博客源码目录（包含 _posts, node_modules, _config.yml 等）非常杂乱，不能直接推到 GitHub Pages 仓库。GitHub Pages 只需要干净的静态文件（即 public 里的内容）。<br>.deploy_git 就是一个“纯净的中间站”，只存放最终网站文件。<br>第三步：推送到远程 (Push)<br>最后，Hexo 执行 git push 命令：<br>将 .deploy_git 里的内容推送到你配置的 repo 地址的指定 branch 分支。</p>
+<p>相对路径和绝对路径：</p>
+<p>📂 my-blog (源码根目录 A)<br> ┣ 📂 source<br> ┃ ┣ 📂 _posts<br> ┃ ┃ ┗ 📄 article.md  &lt;– 你在这里写文章<br> ┃ ┗ 📂 images<br> ┃   ┗ 🖼️ photo.jpg   &lt;– 图片在这里</p>
+<p>【生成的网站 - 书店】(读者看见的)<br>📂 public (网站根目录 B)<br> ┣ 📂 2026<br> ┃ ┗ 📂 03<br> ┃   ┗ 📂 16<br> ┃     ┗ 📂 article-name<br> ┃       ┗ 📄 index.html  &lt;– 文章变成了这个，位置变了！<br> ┗ 📂 images<br>   ┗ 🖼️ photo.jpg         &lt;– 图片被搬到了这里</p>
+<p>相对路径 (Relative Path)<br>定义：相对于当前文件所在位置的路径。<br>特征：不以 &#x2F; 开头，通常包含 . (当前目录) 或 .. (上一级目录)</p>
+<p>当你在 Markdown 里写 <img src="/images/pic.jpg" alt="图"> 时，这个 &#x2F; 指的是 网站根目录 (Public Root)，而不是你电脑上的源码根目录！<br> &#x2F;images&#x2F;pic.jpg &#x3D; public&#x2F;images&#x2F;pic.jpg</p>
+<p> a.<img src="/./images/naxida.jpg" alt="纳西妲"><br>你的意图<br>你想说：“图片就在当前文章旁边的 images 文件夹里。”<br>通常这意味着你在 source&#x2F;_posts&#x2F; 旁边建了一个 images 文件夹，或者在文章同级的文件夹里。<br> Hexo 的默认行为（坑点所在！）<br>默认情况下，Hexo 不会把你文章旁边的 images 文件夹复制到 public 目录中对应的位置<br>源码结构：<br>source&#x2F;<br>└── _posts&#x2F;<br>    ├── my-article.md<br>    └── images&#x2F;          &lt;– 你在这里放了图<br>        └── naxida.jpg<br>生成后的结构 (public)：<br>public&#x2F;<br>└── 2026&#x2F;03&#x2F;16&#x2F;my-article&#x2F;<br>    └── index.html       &lt;– 文章变成了这里<br>结果：浏览器去 public&#x2F;2026&#x2F;03&#x2F;16&#x2F;my-article&#x2F;images&#x2F;naxida.jpg 找图片，找不到，404 错误。</p>
+<p>b.<img src="/_posts/images/naxida.jpg" alt="纳西妲"><br>你的意图<br>你可能在想：“我在 source&#x2F;_posts 里写文章，图片在 source&#x2F;_posts&#x2F;images 里，所以我应该写 _posts&#x2F;images&#x2F;… 来指向它。”<br>为什么这是错的？<br>这是一个典型的“源码思维”陷阱。<br>浏览器看不见 source：网站发布后，source 文件夹彻底消失了。浏览器根本不知道 _posts 是个什么东西</p>
+
     </div>
     
     
