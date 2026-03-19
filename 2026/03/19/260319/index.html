@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: devtools | 来年のblog</title>
+    <title>js语法学习 | 来年のblog</title>
     <meta name="author" content="lainian" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,118 +154,73 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>js语法学习</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/3/19
+        </span>
         
-        
-        
-        <span>
-            <a href="/tags/Hexo/" style="background: #03a9f4">
+        <span class="category">
+            <a href="/categories/learn/">
                 <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                Hexo
+                learn
             </a>
         </span>
         
         
-        
-        <span>
-            <a href="/tags/%E5%9B%BE%E7%89%87/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                图片
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/js/" style="color: #03a9f4">
+                    js
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                博客配置
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/devtools/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                devtools
-            </a>
-        </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E4%B8%BB%E9%A2%98/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                主题
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2026/3/18</div>
-            <a href="/2026/03/18/260318/">
-                <h3>Chrome DevTools 学习笔记</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/learn/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        learn
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/devtools/" style="color: #03a9f4">
-                            devtools
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <p>[toc]</p>
+<h2 id="📦-变量"><a href="#📦-变量" class="headerlink" title="📦 变量"></a>📦 变量</h2><ul>
+<li><strong>变量声明</strong>：关键词 <code>let</code></li>
+<li><strong>变量初始化</strong>：<code>=</code></li>
+<li><strong>变量类型</strong>：数字、字符串、布尔值（<code>true</code>、<code>false</code>）、数组</li>
+</ul>
+<h2 id="🔒-常量"><a href="#🔒-常量" class="headerlink" title="🔒 常量"></a>🔒 常量</h2><ul>
+<li><strong>声明</strong>：<code>const</code></li>
+<li><strong>要求</strong>：声明时就要初始化</li>
+</ul>
+<h2 id="🔢-数字"><a href="#🔢-数字" class="headerlink" title="🔢 数字"></a>🔢 数字</h2><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>**<code>typeof</code>**：判断变量类型</li>
+<li>**<code>toFixed</code>**：将数字四舍五入到固定的小数位<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> lotsOfDecimal = <span class="number">1.7665849587</span>;</span><br><span class="line">lotsOfDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> twoDecimalPlaces = lotsOfDecimal.<span class="title function_">toFixed</span>(<span class="number">2</span>);</span><br><span class="line">twoDecimalPlaces;</span><br><span class="line"><span class="comment">// 输出：1.77</span></span><br></pre></td></tr></table></figure></li>
+<li>**<code>Number()</code>**：转换为数字类型计算</li>
+</ul>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
+<li><strong><code>===</code><strong>：测试左右值是否</strong>完全相同</strong>（类型和值）</li>
+<li><strong><code>!==</code><strong>：测试左右值是否</strong>不完全相同</strong></li>
+</ul>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -293,6 +252,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
