@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: 图片 | 来年のblog</title>
+    <title>js语法学习 | 来年のblog</title>
     <meta name="author" content="lainian" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,132 +154,108 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>js语法学习</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/3/20
+        </span>
         
-        
-        
-        <span>
-            <a href="/tags/Hexo/" style="background: #00a596">
+        <span class="category">
+            <a href="/categories/learn/">
                 <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                Hexo
+                learn
             </a>
         </span>
         
         
-        
-        <span>
-            <a href="/tags/%E4%B8%BB%E9%A2%98/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                主题
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/js/" style="color: #03a9f4">
+                    js
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                博客配置
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/js/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                js
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/devtools/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                devtools
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%9B%BE%E7%89%87/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                图片
-            </a>
-        </span>
-        
-        
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2026/3/16</div>
-            <a href="/2026/03/16/260316/">
-                <h3>图片上传问题</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E5%8D%9A%E5%AE%A2%E5%88%9B%E4%BD%9C/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        博客创作
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/Hexo/" style="color: #00bcd4">
-                            Hexo
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" style="color: #ff7d73">
-                            博客配置
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%9B%BE%E7%89%87/" style="color: #00a596">
-                            图片
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <p>[toc]</p>
+<h2 id="📝-字符串"><a href="#📝-字符串" class="headerlink" title="📝 字符串"></a>📝 字符串</h2><ul>
+<li><strong>模板字面量</strong> (反向引号 <code>`</code>)<ul>
+<li>在模板字面量内，你可以将 JavaScript 变量或表达式包裹在 <code>$&#123; &#125;</code> 内。</li>
+<li>模板字面量可以写出跨多行的字符串。</li>
+</ul>
+</li>
+<li>**<code>window.prompt()</code>**：通过弹出对话框提示用户回答问题。</li>
+<li>**<code>String()</code>**：将其参数转换为字符串。</li>
+<li>**<code>includes()</code>**：判断一个较小的字符串是否存在于较大的字符串中。</li>
+<li>**<code>startsWith()</code> &#x2F; <code>endsWith()</code>**：判断字符串是以某个子字符串开始还是结束。</li>
+<li>**<code>indexOf()</code>**：找到子串在更大字符串中的位置。</li>
+<li>**<code>slice()</code>**：从字符串中提取子字符串。</li>
+<li><strong>大小写与替换</strong>：<ul>
+<li><code>toLowerCase()</code></li>
+<li><code>toUpperCase()</code></li>
+<li><code>replace()</code></li>
+<li><code>replaceAll()</code></li>
+</ul>
+</li>
+<li>**<code>split()</code>**：将字符串分割为数组。<ul>
+<li>最简单的形式是取一个参数（分隔符），并将分隔符之间的子字符串作为数组中的项返回。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="📦-数组-索引集合"><a href="#📦-数组-索引集合" class="headerlink" title="📦 数组 ([,,,...]) - 索引集合"></a>📦 数组 (<code>[,,,...]</code>) - 索引集合</h2><h3 id="增删元素"><a href="#增删元素" class="headerlink" title="增删元素"></a>增删元素</h3><ul>
+<li><strong><code>push()</code><strong>：在数组</strong>末尾</strong>添加一个或多个项目。</li>
+<li><strong><code>unshift()</code><strong>：将项目添加到数组</strong>开头</strong>。</li>
+<li><strong><code>pop()</code><strong>：移除数组中</strong>最后一个</strong>项目。</li>
+<li><strong><code>shift()</code><strong>：从数组中移除</strong>第一个</strong>项。</li>
+<li>**<code>splice()</code>**：根据索引移除项目。<ul>
+<li>第一个参数：说明从哪里开始移除项目。</li>
+<li>第二个参数：说明应移除多少项目。</li>
+</ul>
+</li>
+</ul>
+<h3 id="遍历与转换"><a href="#遍历与转换" class="headerlink" title="遍历与转换"></a>遍历与转换</h3><ul>
+<li>**<code>for...of...</code>**：访问数组每一项。</li>
+<li>**<code>map()</code>**：对数组中的每个项目做同样的操作，最终留下包含更改后物品的数组。<ul>
+<li>给 <code>map()</code> 赋予一个函数，它会对数组中的每个项调用该函数一次。</li>
+</ul>
+</li>
+<li>**<code>filter()</code>**：创建一个新的数组，只包含原始数组中与某个测试匹配的项目。<ul>
+<li>和 <code>map()</code> 一样，给 <code>filter()</code> 赋予一个函数，它对数组中的每个项目调用该函数。</li>
+</ul>
+</li>
+<li>**<code>join()</code>**：与 <code>split()</code> 相反，将数组连接为字符串。</li>
+<li>**<code>toString()</code>**：数组转换为字符串的另一种方法。<ul>
+<li><code>join()</code> 可以指定不同的分隔符。</li>
+<li><code>toString()</code> 总是用逗号分隔。</li>
+</ul>
+</li>
+</ul>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -307,6 +287,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
