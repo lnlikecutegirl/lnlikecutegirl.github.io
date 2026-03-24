@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>js语法学习 | 来年のblog</title>
+    <meta name="author" content="lainian" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>来年のBLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;来年のBLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>js语法学习</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/3/24
+        </span>
+        
+        <span class="category">
+            <a href="/categories/learn/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                learn
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/js/" style="color: #ff7d73">
+                    js
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/DOM/" style="color: #ffa2c4">
+                    DOM
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>[toc]</p>
+<h2 id="🔄-循环"><a href="#🔄-循环" class="headerlink" title="🔄 循环"></a>🔄 循环</h2><ul>
+<li><strong><code>for</code></strong></li>
+<li><strong>遍历集合</strong><ul>
+<li><code>for ... of</code></li>
+<li><code>for (let i = 0; i &lt; cats.length; i++)</code></li>
+</ul>
+</li>
+<li><strong>跳出循环</strong><ul>
+<li><code>break</code></li>
+<li><code>continue</code></li>
+</ul>
+</li>
+<li><strong><code>while</code></strong></li>
+<li><strong><code>do ... while</code></strong></li>
+</ul>
+<hr>
+<h2 id="⚙️-函数"><a href="#⚙️-函数" class="headerlink" title="⚙️ 函数"></a>⚙️ 函数</h2><ul>
+<li><strong>匿名函数</strong>（没有名称的函数）<ul>
+<li>当一个函数期望接收另一个函数作为参数时，函数参数通常作为匿名函数传递。</li>
+</ul>
+</li>
+<li><strong>箭头函数</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传统写法</span></span><br><span class="line">textBox.<span class="title function_">addEventListener</span>(<span class="string">&quot;keydown&quot;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`You pressed &quot;<span class="subst">$&#123;event.key&#125;</span>&quot;.`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数写法</span></span><br><span class="line">textBox.<span class="title function_">addEventListener</span>(<span class="string">&quot;keydown&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`You pressed &quot;<span class="subst">$&#123;event.key&#125;</span>&quot;.`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><strong>全局变量 <code>var</code></strong></li>
+<li><strong>函数调用与引用</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, displayMessage);   <span class="comment">// ✅ 正确：传递函数引用</span></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="title function_">displayMessage</span>()); <span class="comment">// ❌ 错误：立即执行函数并传递返回值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在此语境中，括号有时被称为“函数调用运算符”，只有当你想在当前作用域内立即运行函数时才会调用。</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>返回值</strong></li>
+</ul>
+<hr>
+<h2 id="🌳-DOM-脚本"><a href="#🌳-DOM-脚本" class="headerlink" title="🌳 DOM 脚本"></a>🌳 DOM 脚本</h2><h3 id="Web-浏览器重要部分"><a href="#Web-浏览器重要部分" class="headerlink" title="Web 浏览器重要部分"></a>Web 浏览器重要部分</h3><ul>
+<li><strong>窗口</strong> —— <code>Window</code></li>
+<li><strong>导航器</strong> —— <code>Navigator</code></li>
+<li><strong>文档</strong> —— <code>Document</code></li>
+</ul>
+<h3 id="DOM-树结构"><a href="#DOM-树结构" class="headerlink" title="DOM 树结构"></a>DOM 树结构</h3><ul>
+<li>树中的每个条目称为一个<strong>节点</strong>（元素节点 or 文本节点）。</li>
+<li>关系术语：根节点、子节点、后裔节点、父节点、兄弟节点。</li>
+</ul>
+<h3 id="选择元素"><a href="#选择元素" class="headerlink" title="选择元素"></a>选择元素</h3><p>要操作 DOM 中的元素，首先需要选中它并将该元素的引用存储在变量中。</p>
+<blockquote>
+<p>如：<code>const link = document.querySelector(&quot;a&quot;);</code></p>
+</blockquote>
+<ul>
+<li><code>Document.querySelector()</code></li>
+<li><code>Document.querySelectorAll()</code>（现在最常用）</li>
+<li><code>Document.getElementById()</code></li>
+<li><code>Document.getElementsByTagName()</code></li>
+</ul>
+<h3 id="创建与添加节点"><a href="#创建与添加节点" class="headerlink" title="创建与添加节点"></a>创建与添加节点</h3><ul>
+<li><strong><code>Document.createElement()</code></strong> —— 新建元素。</li>
+<li><strong><code>Node.appendChild()</code></strong> —— 先将引用存储在变量中，再传入变量使用，移到节点底部。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> para = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;p&quot;</span>);</span><br><span class="line">sect.<span class="title function_">appendChild</span>(para);</span><br></pre></td></tr></table></figure></li>
+<li><strong><code>Document.createTextNode()</code></strong> —— 创建文本节点。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> text = <span class="variable language_">document</span>.<span class="title function_">createTextNode</span>(</span><br><span class="line">  <span class="string">&quot; — the premier source for web development knowledge.&quot;</span>,</span><br><span class="line">);</span><br><span class="line"><span class="keyword">const</span> linkPara = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;p&quot;</span>);</span><br><span class="line">linkPara.<span class="title function_">appendChild</span>(text);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="移除节点"><a href="#移除节点" class="headerlink" title="移除节点"></a>移除节点</h3><ul>
+<li><strong><code>Node.removeChild()</code></strong> —— 移除节点及其父节点的引用。</li>
+<li><strong><code>Element.remove()</code></strong> —— 基于自身引用删除节点。</li>
+</ul>
+<h3 id="操作-CSS-样式"><a href="#操作-CSS-样式" class="headerlink" title="操作 CSS 样式"></a>操作 CSS 样式</h3><ol>
+<li><p><strong>获取样式表列表</strong>（过时方法）</p>
+<ul>
+<li>用 <code>Document.styleSheets</code> 获取所有附加到文档的样式表列表，它会返回一个类似数组的对象，里面有 <code>CSSStyleSheet</code> 的对象，然后根据需要添加或移除样式。</li>
+</ul>
+</li>
+<li><p><strong>内联样式</strong></p>
+<ul>
+<li>直接在想要动态样式的元素上添加内联样式 —— <code>HTMLElement.style</code> 属性。<blockquote>
+<p>如：<code>para.style.color = &quot;white&quot;;</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>类名操作</strong>（推荐）</p>
+<ul>
+<li>在单独的样式表中写样式，并通过添加或删除类名来引用这些样式（使用元素的 <code>classList</code> 的 <code>add()</code> 方法）。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">   </span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">para.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&quot;highlight&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2026 - 2026 来年のblog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;lainian
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
