@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title> | 来年のblog</title>
+    <title>Linux命令 | 来年のblog</title>
     <meta name="author" content="lainian" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -156,30 +156,51 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1></h1>
+        <h1>Linux命令</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2026/4/8
+            2026/4/7
         </span>
         
+        <span class="category">
+            <a href="/categories/learn/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                learn
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Linux/" style="color: #00bcd4">
+                    Linux
+                </a>
+            </span>
+            
+        </span>
         
     </div>
     
     <div class="content" v-pre>
-        <p>Linux命令（用户与权限相关）</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Linux命令</span><br><span class="line">date: 2026-04-07</span><br><span class="line">categories: learn</span><br><span class="line"><span class="section">tags: [Linux]</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">[toc]</span><br><span class="line"></span><br><span class="line"><span class="section">### 1. root用户</span></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code">su [-] [用户名]</span></span><br><span class="line"><span class="code">exit</span></span><br><span class="line"><span class="code">sudo 其他命令（需要配置sudo认证）</span></span><br></pre></td></tr></table></figure>
+        <p>[toc]</p>
+<h3 id="1-root用户"><a href="#1-root用户" class="headerlink" title="1. root用户"></a>1. root用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su [-] [用户名]</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="built_in">sudo</span> 其他命令（需要配置<span class="built_in">sudo</span>认证）</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-用户、用户组"><a href="#2-用户、用户组" class="headerlink" title="2. 用户、用户组"></a>2. 用户、用户组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">groupadd 用户组名</span><br><span class="line">groupdel 用户组名</span><br><span class="line">useradd [-g -d] 用户名</span><br><span class="line">userdel [-r] 用户名</span><br><span class="line"><span class="built_in">id</span> [用户名]</span><br><span class="line">usermod -aG 用户组 用户名</span><br><span class="line">getnet passwd</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-权限（ls-l获取权限细节）"><a href="#3-权限（ls-l获取权限细节）" class="headerlink" title="3. 权限（ls -l获取权限细节）"></a>3. 权限（ls -l获取权限细节）</h3><p>-&#x2F;d&#x2F;l r&#x2F;- w&#x2F;- x&#x2F;-(user) r&#x2F;- w&#x2F;- x&#x2F;-(group) r&#x2F;- w&#x2F;- x&#x2F;-(other)<br>-:文件      r:读<br>d:文件夹    w:写<br>l:软链接    x:执行</p>
 <h3 id="4-权限操作命令"><a href="#4-权限操作命令" class="headerlink" title="4. 权限操作命令"></a>4. 权限操作命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chomd [-R] 权限（可用数字0-7） 文件或文件夹</span><br><span class="line"><span class="built_in">chown</span> [-R] [用户][:][用户组] 文件/文件夹</span><br></pre></td></tr></table></figure>
-<pre><code>
-</code></pre>
-
     </div>
     
     
