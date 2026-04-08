@@ -181,6 +181,45 @@
         
 
 <div class="post">
+    <a href="/2026/04/08/260408/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/4/8
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>Linux命令（用户与权限相关）</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Linux命令</span><br><span class="line">date: 2026-04-07</span><br><span class="line">categories: learn</span><br><span class="line"><span class="section">tags: [Linux]</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">[toc]</span><br><span class="line"></span><br><span class="line"><span class="section">### 1. root用户</span></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code">su [-] [用户名]</span></span><br><span class="line"><span class="code">exit</span></span><br><span class="line"><span class="code">sudo 其他命令（需要配置sudo认证）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-用户、用户组"><a href="#2-用户、用户组" class="headerlink" title="2. 用户、用户组"></a>2. 用户、用户组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">groupadd 用户组名</span><br><span class="line">groupdel 用户组名</span><br><span class="line">useradd [-g -d] 用户名</span><br><span class="line">userdel [-r] 用户名</span><br><span class="line"><span class="built_in">id</span> [用户名]</span><br><span class="line">usermod -aG 用户组 用户名</span><br><span class="line">getnet passwd</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-权限（ls-l获取权限细节）"><a href="#3-权限（ls-l获取权限细节）" class="headerlink" title="3. 权限（ls -l获取权限细节）"></a>3. 权限（ls -l获取权限细节）</h3><p>-&#x2F;d&#x2F;l r&#x2F;- w&#x2F;- x&#x2F;-(user) r&#x2F;- w&#x2F;- x&#x2F;-(group) r&#x2F;- w&#x2F;- x&#x2F;-(other)<br>-:文件      r:读<br>d:文件夹    w:写<br>l:软链接    x:执行</p>
+<h3 id="4-权限操作命令"><a href="#4-权限操作命令" class="headerlink" title="4. 权限操作命令"></a>4. 权限操作命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chomd [-R] 权限（可用数字0-7） 文件或文件夹</span><br><span class="line"><span class="built_in">chown</span> [-R] [用户][:][用户组] 文件/文件夹</span><br></pre></td></tr></table></figure>
+<pre><code>
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2026/04/08/260408/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2026/04/07/260407/">
         <h2 class="post-title">Linux命令</h2>
     </a>
@@ -256,7 +295,7 @@ tail [-f -num] Linux路径
         
         <span class="tag">
             
-            <a href="/tags/Linux/" style="color: #03a9f4">Linux</a>
+            <a href="/tags/Linux/" style="color: #00a596">Linux</a>
         </span>
         
     </div>
@@ -322,7 +361,7 @@ tail [-f -num] Linux路径
         
         <span class="tag">
             
-            <a href="/tags/Linux/" style="color: #03a9f4">Linux</a>
+            <a href="/tags/Linux/" style="color: #00bcd4">Linux</a>
         </span>
         
     </div>
@@ -379,7 +418,7 @@ tail [-f -num] Linux路径
         
         <span class="tag">
             
-            <a href="/tags/CTF%E3%80%81Agent/" style="color: #ff7d73">CTF、Agent</a>
+            <a href="/tags/CTF%E3%80%81Agent/" style="color: #ffa2c4">CTF、Agent</a>
         </span>
         
     </div>
@@ -659,12 +698,12 @@ try...catch
         
         <span class="tag">
             
-            <a href="/tags/js/" style="color: #ff7d73">js</a>
+            <a href="/tags/js/" style="color: #00a596">js</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/DOM/" style="color: #03a9f4">DOM</a>
+            <a href="/tags/DOM/" style="color: #ff7d73">DOM</a>
         </span>
         
     </div>
@@ -766,7 +805,7 @@ try...catch
         
         <span class="tag">
             
-            <a href="/tags/js/" style="color: #ff7d73">js</a>
+            <a href="/tags/js/" style="color: #ffa2c4">js</a>
         </span>
         
     </div>
@@ -833,7 +872,7 @@ try...catch
         
         <span class="tag">
             
-            <a href="/tags/js/" style="color: #ffa2c4">js</a>
+            <a href="/tags/js/" style="color: #00bcd4">js</a>
         </span>
         
     </div>
@@ -1118,12 +1157,12 @@ try...catch
         
         <span class="tag">
             
-            <a href="/tags/Hexo/" style="color: #ff7d73">Hexo</a>
+            <a href="/tags/Hexo/" style="color: #03a9f4">Hexo</a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/%E5%9B%BE%E7%89%87/" style="color: #00a596">图片</a>
+            <a href="/tags/%E5%9B%BE%E7%89%87/" style="color: #ffa2c4">图片</a>
         </span>
         
         <span class="tag">
@@ -1133,75 +1172,6 @@ try...catch
         
     </div>
     <a href="/2026/03/16/260316/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2026/03/15/260315/">
-        <h2 class="post-title">My First Blog</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                博客搭建
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2026/3/15
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>[toc]</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天成功为我的博客更换了全新主题，整体界面变aa得更加简洁美观。接下来我会逐步完善站点功能，让博客更加完整好用。</p>
-<h2 id="First-Try"><a href="#First-Try" class="headerlink" title="First Try"></a>First Try</h2><p>最近完成了博客主题的更换，整体风格焕然一新。<br>接下来的主要任务：</p>
-<ul>
-<li>完善 <strong>About</strong> 页面</li>
-<li>搭建 <strong>Tags</strong> 页面</li>
-<li>搭建 <strong>Categories</strong> 页面</li>
-<li>安装并配置实用插件</li>
-<li>优化文章排版与代码高亮</li>
-</ul>
-<p><img src="/images/naxida.jpg" alt="纳西妲"></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Hexo/" style="color: #00bcd4">Hexo</a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" style="color: #ffa2c4">博客配置</a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/%E4%B8%BB%E9%A2%98/" style="color: #03a9f4">主题</a>
-        </span>
-        
-    </div>
-    <a href="/2026/03/15/260315/" class="go-post">阅读全文</a>
 </div>
 
 
