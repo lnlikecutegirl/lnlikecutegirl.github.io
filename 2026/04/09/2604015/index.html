@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>js语法学习 | 来年のblog</title>
+    <title>Linux、Vibe Coding学习 | 来年のblog</title>
     <meta name="author" content="lainian" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -156,14 +156,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>js语法学习</h1>
+        <h1>Linux、Vibe Coding学习</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2026/3/25
+            2026/4/9
         </span>
         
         <span class="category">
@@ -184,8 +184,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/js/" style="color: #00a596">
-                    js
+                <a href="/tags/Linux%E3%80%81Vibe-Coding/" style="color: #03a9f4">
+                    Linux、Vibe Coding
                 </a>
             </span>
             
@@ -195,113 +195,31 @@
     
     <div class="content" v-pre>
         <p>[toc]</p>
-<h2 id="📌-事件"><a href="#📌-事件" class="headerlink" title="📌 事件"></a>📌 事件</h2><p>事件监听器<br>添加事件监听器-addEventListener()<br> -参数1表示事件，如click、mouseover、keydown<br> -参数2表示事件发生时调用的函数，多为匿名函数<br>按钮事件有foucus、blur、dblclick、mouseover、mouseout<br>移除事件监听器-removeEventListener()<br>另外两种注册事件处理程序的方法：<br>    事件处理属性-如onclick<br>    内联事件处理程序（不推荐）<br>事件对象：<br>    有时在事件处理函数中，会看到一个参数，名称为 event、evt 或 e。被称为事件对象 </p>
-<hr>
-<h2 id="🧨-事件冒泡"><a href="#🧨-事件冒泡" class="headerlink" title="🧨 事件冒泡"></a>🧨 事件冒泡</h2><pre><code>事件是从被点击的最内层元素冒出来的
-</code></pre>
-<p>stopPropagation()-当它在事件处理程序中被调用时，可以防止事件冒泡到其他元素<br>事件捕获：与事件冒泡顺序相反<br>事件捕获默认被禁用，要启用它，你必须在 addEventListener（） 里传递caption选项<br>    如container.addEventListener(“click”, handleClick, { capture: true });<br>事件冒泡实用方法：<br>    当用户与大量子元素中的任何一个进行交互时执行某些代码时，我们在它们的父元素上设置事件监听器，并让事件从子元素冒泡到父元素，而不是必须单独在每个子元素上设置事件监听器<br>target和currentTarget<br>    target 指向事件最初被触发的元素，而 currentTarget 指向事件处理器被附加的元素</p>
-<hr>
-<h2 id="📦-对象"><a href="#📦-对象" class="headerlink" title="📦 对象"></a>📦 对象</h2><pre><code>对象是相关数据和功能的集合，通常包含多个变量和函数（当它们位于对象内部时称为属性和方法）
-const objectName = &#123;
-    member1Name: member1Value,
-    function1name()&#123;
-        ...
-    &#125;
-&#125;;
-访问对象：
-    用.访问对象的属性和方法
-    用[]，objectname[&quot;memeber1Name&quot;]
-设置成员
-    更新现有属性和方法的值,也可以创建全新的成员
-this关键字
-    this通常指当前代码正在执行的对象，在对象方法的语境中，this指的是该方法被调用的对象
-构造函数
-    用new关键字调用的函数
-    function Person(name) &#123;
-        this.name = name;
-        this.introduceSelf = function () &#123;
-            console.log(`Hi! I&#39;m $&#123;this.name&#125;.`);
-        &#125;;
-    &#125;
-    const salva = new Person(&quot;Salva&quot;);
-</code></pre>
-<hr>
-<h2 id="🌐-网络请求"><a href="#🌐-网络请求" class="headerlink" title="🌐 网络请求"></a>🌐 网络请求</h2><pre><code>Fetch API
-    承诺
-</code></pre>
-<h2 id="🖥️-设置本地测试服务器"><a href="#🖥️-设置本地测试服务器" class="headerlink" title="🖥️ 设置本地测试服务器"></a>🖥️ 设置本地测试服务器</h2><hr>
-<h2 id="📄-JSON"><a href="#📄-JSON" class="headerlink" title="📄 JSON"></a>📄 JSON</h2><pre><code>JSON 是一种基于文本的数据格式，遵循 JavaScript 对象语法
-可以把它解析成一个 JavaScript 对象，像处理用相同对象字面量语法声明的对象一样使用它
-也可以将数组转换为 JSON
-JSON语法
-    对于原语，JSON 可以包含字符串文字、数字文字、true、false 和 null
-    对于非原语，JSON 可以包含对象文字和数组，但不能包含函数或其他对象类型
-    对象的每个属性名称必须是用双引号包围的字符串文字
-对象与文本之间的转换
-    parse（）：接受 JSON 字符串作为参数，并返回相应的 JavaScript 对象
-    stringify（）：接受一个对象作为参数，并返回等价的 JSON 字符串
-</code></pre>
-<p>toggle()函数一般用于在两个对立的状态（如真&#x2F;假、开&#x2F;关）之间翻转</p>
-<hr>
-<h2 id="⚡-同步编程"><a href="#⚡-同步编程" class="headerlink" title="⚡ 同步编程"></a>⚡ 同步编程</h2><pre><code>同步函数：当同步函数运行时不能做其他任何操作
-    原因：JavaScript 程序是单线程的它一次只能做一件事：所以如果它在等待我们长时间运行的同步调用返回，它就不能做其他事情
-</code></pre>
-<hr>
-<h2 id="🚀-异步编程"><a href="#🚀-异步编程" class="headerlink" title="🚀 异步编程"></a>🚀 异步编程</h2><pre><code>事件处理器（add Event Listener）也是异步函数
-回调：一个传递给另一个函数的函数（不易处理嵌套，故现代异步API不常用）
-承诺——异步编程基础
-    链式承诺：
-    const fetchPromise = fetch(
-    &quot;https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json&quot;,
-    );
-    fetchPromise.then((response) =&gt; &#123;
-        const jsonPromise = response.json();
-        jsonPromise.then((data) =&gt; &#123;
-        console.log(data[0].name);
-        &#125;);
-    &#125;);
-    重写：
-    const fetchPromise = fetch(
-    &quot;https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json&quot;,
-    );
-    fetchPromise
-        .then((response) =&gt; response.json())
-        .then((data) =&gt; &#123;
-        console.log(data[0].name);
-    &#125;);
-    我们不必在第一个then()的处理程序中调用第二个then()，而是可以返回json()返回的promise，并在该返回值上调用第二个then()
+<h2 id="进程相关命令"><a href="#进程相关命令" class="headerlink" title="进程相关命令"></a>进程相关命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps [-e -f]</span><br><span class="line"><span class="built_in">kill</span> [-q] 进程ID</span><br></pre></td></tr></table></figure>
 
-    catch()方法——用于错误处理
-        异步操作成功时调用传递至 then() 的处理程序，异步操作失败时调用catch()处理程序
-    承诺三种状态：
-        pending初始状态，操作尚未完成
-        fulfilled操作成功，此时调用了 promise 的.then() 处理器
-        rejected操作失败,此时调用承诺的 .catch() 处理程序
-    Promise.all()方法，它接受一系列承诺，并返回一个承诺
-    Promise.any()方法，实现一系列承诺中的任意一个，不在乎哪一个
-    
-    async：
-        在函数开头添加async，使其成为异步函数
-    await：
-        使得代码在该点等待，直到Promise被解决，此时Promise的fulfilled值被视为返回值，或者rejected值被抛出
-</code></pre>
-<hr>
-<h2 id="🐛-js-debugging-and-error-handling"><a href="#🐛-js-debugging-and-error-handling" class="headerlink" title="🐛 js debugging and error handling"></a>🐛 js debugging and error handling</h2><pre><code>console.log(),console.error()
-call stacks
-js debugger
-    断点
-throw Error()语句
-try...catch
-    try &#123;
-    // Run some code
-    &#125; catch (error) &#123;
-    // Handle any errors
-    &#125;   
-    一切正常， 捕获块将被忽略，如果投出错误，会运行捕获块
-</code></pre>
-<hr>
-<h2 id="🧩-框架——本质是一个库"><a href="#🧩-框架——本质是一个库" class="headerlink" title="🧩 框架——本质是一个库"></a>🧩 框架——本质是一个库</h2><p>React</p>
-<h2 id="🌍-客户端与服务器"><a href="#🌍-客户端与服务器" class="headerlink" title="🌍 客户端与服务器"></a>🌍 客户端与服务器</h2>
+<h2 id="主机状态查看命令"><a href="#主机状态查看命令" class="headerlink" title="主机状态查看命令"></a>主机状态查看命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">top [-p -d -c -n -b -i -u]</span><br><span class="line"><span class="built_in">df</span> [-h]</span><br><span class="line">iostat [-x] [num1] [num2]</span><br><span class="line">sar -n DEV num1 num2</span><br></pre></td></tr></table></figure>
+
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span>  <span class="comment"># 查看环境变量</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>环境变量PATH：记录任何命令的搜索路径</li>
+<li>$:取变量</li>
+<li>自行设环境变量<ul>
+<li>临时：export 变量名&#x3D;变量值</li>
+<li>永久：<ul>
+<li>针对当前用户，配置在当前用户~&#x2F;.bashrc</li>
+<li>针对全部用户，配置在&#x2F;etc&#x2F;profile</li>
+</ul>
+</li>
+<li>生效：source 配置文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="上传、下载、压缩、解压缩"><a href="#上传、下载、压缩、解压缩" class="headerlink" title="上传、下载、压缩、解压缩"></a>上传、下载、压缩、解压缩</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br><span class="line">sz 配置文件</span><br><span class="line">tar [-c -v -x -f -z -C] 参数1,参数2,...</span><br><span class="line">zip [-r] 参数1,参数2,...</span><br><span class="line">unzip [-d] 参数</span><br></pre></td></tr></table></figure>
+
+<h2 id="vibe-coding"><a href="#vibe-coding" class="headerlink" title="vibe coding"></a>vibe coding</h2><ul>
+<li>找到需求</li>
+</ul>
+
     </div>
     
     
